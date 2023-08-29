@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+    /* parte do reset, função: zerar margens, paddings, box size e definir a fonte da página */
+}
+
+body{
+    text-align: center;
+    background: linear-gradient(to bottom, #6ab7f5, #fff);
+    /* backgorund: linear-gradient() fnciona como um degrade que precisa botar de onde sai, e que cor usar para sair, e que cor vai ficando no final da página */
+    /* vemos que fica quebrado porque o conteudo (body) so vai até certa altura, para consertar isso podemos usar um min-height*/
+    min-height: 100vh; 
+    /* com isso nosso degrade vai para 100% da tela */
+   
+}
+
+main{
+    /* com o backgorund color,o que vai cubrir é toda a tela, que é no caso, o que a tag main ocupa (toda a tela), não queremos isso, queremos que fique somente no fundo, atrás da pokedex, usamos um display  */
+    /* tirar o background color que era somente ilustração */
+    display: inline-block;
+    /* block, funciona como um bloco, o inline serve para mudar sua dimensão ao mesmo tempo que ainda permite manipular esse bloco */
+    margin-top: 2%;
+    padding: 15px;
+    position: relative;
+    /* com position relative outros objetos comm osition absolute que incluirmos na página vão respeitar o tamanho da tag main */
+}
+
+/* criar as classes que existem no html */
+
+.pokedex{
+    /* até aqui não temos responsibilidade, ou seja, tem scroll lateral e vertical, pois a imagem não cabe na tela, para arrumar isso vamos arrumar o width para 100% */
+    width: 100%;
+    /* isso só ocorre pois nossa tag main só tem um componente e por não termos definido tamanho nela, podemos fazer isso nessa clase */
+    max-width: 425px;
+    /* como vamos colocar a imagem do pokemon da api, precisamos mudar o tamanho da imagem para algo fixo */
+
+}
+
+/* podemos também ajustar invés daqui no JS, inveés de colocar porcentagens podemos arrumar a responsibilidade no js */
+
+.pokemon_image{
+    /* quando colocamos um pokemon e mexemos no tamanho da pokedex, o pokemon será deslocado para o lado esquerdo da pokedex, para arrumar isso usaremos O POSITION ABSOLUTE para todas as ocorrencias desse tipo */
+    position: absolute;
+    /* para arrumar a posição em relação à tag main usar na tag main position relative */
+    bottom: 55%;
+    left: 50%;
+    /* se tentarmos diminuir a tela, vamos ver que a imagem do pokemon vai sair da pokedex, logo NÃO USAREMSO VALORES FIXOS EM PIXEL E SIM EM PORCENTAGEM, a porcentagem é referente a tag main, nesse caso da pokedex*/
+    transform: translate(-63%, 20%);
+    /* recebe dois parametros a tag transform translate, os valores são referentes ao tamanho da imagem do pokemon */
+    /* definir altura FIXA para a imagem JÁ QUE DENTRO DA POKEDEX OS POKEMONS DEVEM OCUPAR O MESMO TAMANHO */
+    height: 18%;
+    /* ajustando depois para porcentagem */
+
+}
+
+.pokemon_data{
+    position: absolute;
+    font-weight: 600;
+    color: #aaa;
+    top: 54.5%;
+    right: 27%;
+    font-size: clamp(8px, 5vw, 25px);
+    /* parametrospara o clamp são min, default, max */
+}
+.pokemon_name{
+    color: #3a444d;
+    text-transform: capitalize;
+}
+
+.form{
+    position: absolute;
+    width: 65%;
+    top: 65%;
+    left:13.5%;
+}
+
+.input_search{
+    width: 100%;
+    padding: 4%;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #3a444d;
+    font-size: clamp(8px, 5vw, 1rem);
+    box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
+    /* com o box shadow nos criamos uma sombra na nossa caixa de procura, podemos usar a virgula para criar outra sombra abaixo de outra ja criada*/
+
+
+}
+
+.buttons{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 65%;
+    transform: translate(-57%, 0);
+    display: flex;
+    gap: 20px;
+}
+
+.button{
+    width: 50%;
+    padding: 4%;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 1rem);
+    font-weight: 600;
+    color: white;
+    background-color: #444;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 black;
+
+}
+
+.button:active{
+    /* se deixarmos uma backgrund color veremos que quando presisonado vai exibir a cor vermelha atrás dos textos dos botões */
+
+    box-shadow: inset -4px 4px 0 #222;
+    font-size: 0.9rem;
+
+}

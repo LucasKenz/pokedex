@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- links -->
+    <link rel="icon" href="./src/favicons/favicon-16x16.png">
+    <!-- gerador de icones que ficam na aba do navegador: WEBSITE PLANET  -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- se você colocar um link que não existe e segurar ctrl + click, voc~e vai clicar e criar o arquivo -->
+
+    <!-- :main js -->
+    <script defer src="./js/script.js"></script>
+    <!-- atributo defer é para não ter problemas de carregar o script antes do html da página, outra opção é colocar esse script no final do body da página-->
+
+
+    <title>Pokédex</title>
+</head>
+<body>
+    
+    <main>
+        <img src="#" class="pokemon_image" alt="Pokemon">
+
+        <h1 class="pokemon_data">
+            <span class="pokemon_number"></span>
+            <span class="pokemon_name"></span>
+            <!-- tiramos os elementos do >< porque vamos carregá-los dentro do JS -->
+        </h1>
+
+        <form class="form">
+            <!-- esse form funciona como um formulário, que pega o campo da pesquisa envia o formulário e através do JS traz a resposta -->
+            <input 
+                type="search"
+                class="input_search"
+                placeholder="Name or Number"
+                required
+            />
+        </form>
+
+        <div class="buttons">
+            <button class="button btn-prev">Prev &lt;</button>
+            <button class="button btn-next">Next &gt;</button>
+        </div>
+
+        <img class="pokedex" src="./src/images/pokedex.png" alt="Pokédex">
+    </main>
+
+</body>
+</html>
